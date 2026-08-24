@@ -1,12 +1,3 @@
-# ============================================================
-# FUNÇÃO f: ATIVO -> TOMBAMENTO
-# Construção da função inversa e comprovação da bijetividade
-# ============================================================
-
-
-# ------------------------------------------------------------
-# 1. Conjunto dos Ativos
-# ------------------------------------------------------------
 
 Ativo = {
     "Ativo 1",
@@ -17,10 +8,6 @@ Ativo = {
 }
 
 
-# ------------------------------------------------------------
-# 2. Conjunto dos Tombamentos
-# ------------------------------------------------------------
-
 Tombamento = {
     "T001",
     "T002",
@@ -29,11 +16,6 @@ Tombamento = {
     "T005"
 }
 
-
-# ------------------------------------------------------------
-# 3. Definição da função
-# f: Ativo -> Tombamento
-# ------------------------------------------------------------
 
 f = {
     "Ativo 1": "T001",
@@ -44,10 +26,6 @@ f = {
 }
 
 
-# ------------------------------------------------------------
-# 4. Exibição da função
-# ------------------------------------------------------------
-
 print("=" * 60)
 print("FUNÇÃO f: ATIVO -> TOMBAMENTO")
 print("=" * 60)
@@ -55,10 +33,6 @@ print("=" * 60)
 for ativo in sorted(Ativo):
     print(f"f({ativo}) = {f[ativo]}")
 
-
-# ------------------------------------------------------------
-# 5. Verificação de que f é uma função válida
-# ------------------------------------------------------------
 
 funcao_valida = (
     set(f.keys()) == Ativo
@@ -74,16 +48,6 @@ if funcao_valida:
 else:
     print("f NÃO é uma função válida.")
 
-
-# ------------------------------------------------------------
-# 6. Verificação da INJETIVIDADE
-# ------------------------------------------------------------
-#
-# f é injetora se:
-#
-# f(x1) = f(x2) => x1 = x2
-#
-# Na prática, nenhum tombamento pode aparecer duas vezes.
 
 
 valores = list(f.values())
@@ -103,10 +67,6 @@ else:
     print("Existem ativos diferentes com o mesmo tombamento.")
 
 
-# ------------------------------------------------------------
-# 7. Cálculo da imagem Im(f)
-# ------------------------------------------------------------
-
 imagem = set(f.values())
 
 
@@ -115,18 +75,6 @@ print("IMAGEM DA FUNÇÃO")
 print("=" * 60)
 
 print("Im(f) =", imagem)
-
-
-# ------------------------------------------------------------
-# 8. Verificação da SOBREJETIVIDADE
-# ------------------------------------------------------------
-#
-# f é sobrejetora quando:
-#
-# Im(f) = Tombamento
-#
-# Ou seja, todo tombamento possui pelo menos um ativo
-# associado.
 
 
 eh_sobrejetora = imagem == Tombamento
@@ -144,14 +92,6 @@ else:
     print("Existe pelo menos um tombamento sem ativo associado.")
 
 
-# ------------------------------------------------------------
-# 9. Verificação da BIJETIVIDADE
-# ------------------------------------------------------------
-#
-# Uma função é bijetora quando é:
-#
-# INJETORA + SOBREJETORA
-#
 
 
 eh_bijetora = eh_injetora and eh_sobrejetora
@@ -168,21 +108,6 @@ else:
     print("f NÃO É BIJETORA.")
 
 
-# ------------------------------------------------------------
-# 10. Construção da função inversa
-# ------------------------------------------------------------
-#
-# Se:
-#
-# f(Ativo 1) = T001
-#
-# então:
-#
-# f^-1(T001) = Ativo 1
-#
-#
-
-
 print("\n" + "=" * 60)
 print("FUNÇÃO INVERSA f⁻¹")
 print("=" * 60)
@@ -190,7 +115,7 @@ print("=" * 60)
 
 if eh_bijetora:
 
-    # Inverte chave e valor
+  
     f_inversa = {
         tombamento: ativo
         for ativo, tombamento in f.items()
@@ -210,18 +135,6 @@ else:
     )
 
 
-# ------------------------------------------------------------
-# 11. Verificação matemática da inversa
-# ------------------------------------------------------------
-#
-# Para confirmar que realmente são funções inversas:
-#
-# f⁻¹(f(x)) = x
-#
-# e
-#
-# f(f⁻¹(y)) = y
-#
 
 
 if eh_bijetora:
@@ -253,8 +166,7 @@ if eh_bijetora:
             )
 
 
-    # Verificação:
-    # f(f⁻¹(y)) = y
+
 
     for tombamento in Tombamento:
 
