@@ -32,7 +32,6 @@ print("============================================")
 for par in sorted(produto_cartesiano):
     print(par)
 
-
 relacao_atendimento = {
     ("Hospital", "Boa Viagem"),
     ("Hospital", "Pina"),
