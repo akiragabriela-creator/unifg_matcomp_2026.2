@@ -1,15 +1,10 @@
-# ============================================
-# MODELAGEM DE CONJUNTOS E RELAÇÃO DE ATENDIMENTO
-# ============================================
-
-# Conjunto A - Equipamentos
 A = {
     "Hospital",
     "UPA",
     "Posto de Saúde"
 }
 
-# Conjunto B - Bairros
+
 B = {
     "Boa Viagem",
     "Pina",
@@ -17,20 +12,12 @@ B = {
     "Jaboatão"
 }
 
-# --------------------------------------------
-# 1. Exibindo os conjuntos
-# --------------------------------------------
-
 print("CONJUNTO A - EQUIPAMENTOS")
 print(A)
 
 print("\nCONJUNTO B - BAIRROS")
 print(B)
 
-
-# --------------------------------------------
-# 2. Produto Cartesiano A x B
-# --------------------------------------------
 
 produto_cartesiano = {
     (equipamento, bairro)
@@ -45,11 +32,6 @@ print("============================================")
 for par in sorted(produto_cartesiano):
     print(par)
 
-
-# --------------------------------------------
-# 3. Relação de Atendimento
-# --------------------------------------------
-# Cada equipamento atende determinados bairros.
 
 relacao_atendimento = {
     ("Hospital", "Boa Viagem"),
@@ -70,20 +52,12 @@ for equipamento, bairro in sorted(relacao_atendimento):
     print(f"{equipamento} -> {bairro}")
 
 
-# --------------------------------------------
-# 4. Verificando se a relação é válida
-# --------------------------------------------
-
 if relacao_atendimento.issubset(produto_cartesiano):
     print("\nA relação de atendimento é válida!")
     print("Todos os pares pertencem ao produto cartesiano A x B.")
 else:
     print("\nA relação de atendimento NÃO é válida!")
 
-
-# --------------------------------------------
-# 5. Mostrando os bairros atendidos por cada equipamento
-# --------------------------------------------
 
 print("\n============================================")
 print("BAIRROS ATENDIDOS POR CADA EQUIPAMENTO")
